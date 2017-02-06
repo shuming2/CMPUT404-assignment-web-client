@@ -60,7 +60,11 @@ class HTTPClient(object):
 
     def get_body(self, data):
         i = data.find("\r\n\r\n")
-        return data[i+4:]
+        if len(data) == i+4:
+            body = None
+        else:
+            body = data[i+4:]
+        return body
 
     # read everything from the socket
     def recvall(self, sock):
