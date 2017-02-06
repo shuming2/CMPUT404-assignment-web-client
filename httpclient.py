@@ -84,7 +84,7 @@ class HTTPClient(object):
 
         clientSocket = self.connect(hostname, port)
 
-        clientSocket.sendall("GET " + path + " HTTP/1.1\r\n" +
+        clientSocket.sendall("GET " + path + " HTTP/1.0\r\n" +
                              "Host: " + hostname + "\r\n" +
                              "Accept: */*\r\n" +
                              "\r\n")
@@ -108,7 +108,7 @@ class HTTPClient(object):
 
         clientSocket = self.connect(hostname, port)
 
-        clientSocket.sendall("POST " + path + " HTTP/1.1\r\n" +
+        clientSocket.sendall("POST " + path + " HTTP/1.0\r\n" +
                              "Host: " + hostname + "\r\n" +
                              "Accept: */*\r\n" +
                              "Content-Length: " + str(len(content)) + "\r\n" +
